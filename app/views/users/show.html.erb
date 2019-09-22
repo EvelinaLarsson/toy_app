@@ -10,10 +10,15 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Microposts:</strong>
-  <%= @user.microposts[2].content %>
-</p>
+<% if @user.microposts.present? %>
+  <p>
+    <strong>Microposts:</strong>
+    <%= @user.microposts[2].content %>
+  </p>
+<% else %>
+  <p>No posts yet!</p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
